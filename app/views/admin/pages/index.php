@@ -20,7 +20,7 @@
             <td><?=$item->id?></td>
             <td><?=$item->title_fr?></td>
             <td align="right">
-                <a href="<?=URL::route('admin.pages.edit',$item->slug_fr)?>" class="button tiny">Modifier</a>
+                <a href="<?=URL::route('admin.pages.edit',$item->id)?>" class="button tiny">Modifier</a>
             </td>
         </tr>
         <?php } ?>
