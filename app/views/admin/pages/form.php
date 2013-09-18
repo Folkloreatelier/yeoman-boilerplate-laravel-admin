@@ -10,17 +10,35 @@
 
 <?php } ?>
 
+<?php if(isset($errors) && $errors->has()) { ?>
 <div class="row">
 	<div class="small-12 columns">
-		<?=Form::label('title_fr','Titre:')?>
-		<?=Form::text('title_fr')?>
+		<div class="alert-box alert">
+			Votre formulaire contient des erreurs.
+		</div>
+	</div>
+</div>
+<?php } ?>
+
+<?php
+	$hasError = $errors && $errors->has('title_fr');
+?>
+<div class="row">
+	<div class="small-12 columns">
+		<?=Form::label('title_fr','Titre:',array('class'=>$hasError ? 'error':''))?>
+		<?=Form::text('title_fr',null,array('class'=>$hasError ? 'error':''))?>
+		<?=$hasError ? $errors->first('title_fr', '<small class="error">:message</small>'):''?>
 	</div>
 </div>
 
+<?php
+	$hasError = $errors && $errors->has('body_fr');
+?>
 <div class="row">
 	<div class="small-12 columns">
-		<?=Form::label('body_fr','Contenu:')?>
-		<?=Form::textarea('body_fr')?>
+		<?=Form::label('body_fr','Contenu:',array('class' => $hasError ? 'error':''))?>
+		<?=Form::textarea('body_fr',null,array('class' => $hasError ? 'editor error':'editor'))?>
+		<?=$hasError ? $errors->first('body_fr', '<small class="error">:message</small>'):''?>
 	</div>
 </div>
 

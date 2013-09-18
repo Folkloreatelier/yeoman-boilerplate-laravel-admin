@@ -75,23 +75,28 @@ class AdminUsersController extends \BaseController {
 
 		$input = Input::all();
 
-		$validator = Validator::make($input,array(
-			'email' => array('required','email'),
-			'password' => array('confirmed')
-		));
-		if($validator->fails()) {
-			$redirect = $isNew ? Redirect::route('admin.users.create'):Redirect::route('admin.users.edit',array($id));
-		    return $redirect->withErrors($validator);
-		}
-
+		$isNew = true;
 		if($id) {
 			$item = User::find($id);
+			$isNew = false;
+			if(!$item) return App::abort(404);
 		} else {
 			$item = new User();
 		}
 
+		$validator = Validator::make($input,array(
+			'email' => array('required','email',!$isNew ? 'unique:users,email,'.$item->id:'unique:users'),
+			'password' => $isNew ? array('required','confirmed'):array('confirmed')
+		));
+		if($validator->fails()) {
+			$redirect = $isNew ? Redirect::route('admin.users.create'):Redirect::route('admin.users.edit',array($id));
+		    return $redirect->withInput()->withErrors($validator);
+		}
+
 		$item->fill($input);
 		$item->save();
+
+		return Redirect::route('admin.users.index');
 	}
 
 	/**

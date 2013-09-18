@@ -1,5 +1,11 @@
 <h1>Utilisateurs</h1>
-<a href="<?=URL::route('admin.users.create')?>" class="button small">Ajouter un utilisateur</a>
+
+<div class="row">
+    <div class="small-12 columns" align="right">
+        <a href="<?=URL::route('admin.users.create')?>" class="button small">Ajouter un utilisateur</a>
+    </div>
+</div>
+
 <table width="100%">
     <thead>
         <tr>

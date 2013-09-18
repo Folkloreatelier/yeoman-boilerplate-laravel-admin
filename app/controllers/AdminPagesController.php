@@ -75,18 +75,21 @@ class AdminPagesController extends \BaseController {
 
 		$input = Input::all();
 
+		$isNew = true;
+		if($id) {
+			$item = Page::find($id);
+			$isNew = false;
+			if(!$item) return App::abort(404);
+		} else {
+			$item = new Page();
+		}
+
 		$validator = Validator::make($input,array(
 			'title_fr' => array('required')
 		));
 		if($validator->fails()) {
 			$redirect = $isNew ? Redirect::route('admin.pages.create'):Redirect::route('admin.pages.edit',array($id));
-		    return $redirect->withErrors($validator);
-		}
-
-		if($id) {
-			$item = Page::find($id);
-		} else {
-			$item = new Page();
+		    return $redirect->withInput()->withErrors($validator);
 		}
 
 		$item->fill($input);

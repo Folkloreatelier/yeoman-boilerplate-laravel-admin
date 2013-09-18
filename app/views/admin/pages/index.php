@@ -1,4 +1,11 @@
 <h1>Pages</h1>
+
+<div class="row">
+    <div class="small-12 columns" align="right">
+        <a href="<?=URL::route('admin.pages.create')?>" class="button small">Ajouter une page</a>
+    </div>
+</div>
+
 <table width="100%">
     <thead>
         <tr>
