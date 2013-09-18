@@ -1,7 +1,7 @@
 <?php if(isset($item)) { ?>
 
 	<h1>Modifier une page</h1>
-	<?=Form::model($item, array('route' => array('admin.pages.update',$item->slug_fr), 'method' => 'put', 'class'=>'custom')) ?>
+	<?=Form::model($item, array('route' => array('admin.pages.update',$item->id), 'method' => 'put', 'class'=>'custom')) ?>
 
 <?php } else { ?>
 

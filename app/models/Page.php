@@ -13,11 +13,11 @@ class Page extends Eloquent {
 	 * Accessors and Mutators
 	 *
 	 */
-	public function setTitleFrAttribute($value) {
+	protected function setTitleFrAttribute($value) {
     	$this->attributes['title_fr'] = $value;
     	$this->attributes['slug_fr'] = Str::slug($value);
 	}
-	public function setTitleEnAttribute($value) {
+	protected function setTitleEnAttribute($value) {
     	$this->attributes['title_en'] = $value;
     	$this->attributes['slug_en'] = Str::slug($value);
 	}
