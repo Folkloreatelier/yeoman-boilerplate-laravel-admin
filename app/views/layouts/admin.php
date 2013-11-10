@@ -1,8 +1,3 @@
-<?php
-
-	$title = !isset($title) ? 'Administration':$title;
-
-?>
 <!doctype html>
 <!--[if IE ]> <html class="ie" lang="<?=$language?>"> <![endif]-->
 <!--[if !(IE) ]><!--> <html lang="<?=$language?>"> <!--<![endif]-->

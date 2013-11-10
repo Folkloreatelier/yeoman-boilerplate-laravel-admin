@@ -9,8 +9,6 @@ $languages = Config::get('app.languages');
 $locale = Request::segment(1);
 if(in_array($locale, $languages)){
 	App::setLocale($locale);
-} else {
-	$locale = null;
 }
 
 /*
