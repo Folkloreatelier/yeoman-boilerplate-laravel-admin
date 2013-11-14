@@ -1,12 +1,12 @@
 <h1>Pages</h1>
 
-<div class="row">
-    <div class="small-12 columns" align="right">
-        <a href="<?=URL::route('admin.pages.create')?>" class="button small">Ajouter une page</a>
-    </div>
+<div align="right">
+    <a href="<?=URL::route('admin.pages.create')?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter une page</a>
 </div>
 
-<table width="100%">
+<hr />
+
+<table width="100%" class="table table-striped">
     <thead>
         <tr>
             <th width="50">ID</th>
@@ -20,8 +20,15 @@
             <td><?=$item->id?></td>
             <td><?=$item->title_fr?></td>
             <td align="right">
-                <a href="<?=URL::route('admin.pages.edit',$item->id)?>" class="button tiny">Modifier</a>
+                <a href="<?=URL::route('admin.pages.destroy',$item->id)?>" class="btn btn-xs btn-danger">Supprimer</a>
+                <a href="<?=URL::route('admin.pages.edit',$item->id)?>" class="btn btn-xs btn-default">Modifier</a>
             </td>
+        </tr>
+        <?php } ?>
+
+        <?php if(!sizeof($items)) { ?>
+        <tr>
+            <td colspan="3" align="center">Aucune page pour le moment</td>
         </tr>
         <?php } ?>
     </tbody>

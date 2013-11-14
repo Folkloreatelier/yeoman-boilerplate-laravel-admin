@@ -6,16 +6,21 @@ define(
 
 	'views/photoUploader',
 
-	'foundation.dropdown',
-    'foundation.forms',
-    'foundation.clearing',
-    'foundation.cookie',
-    'foundation.interchange',
-    'foundation.section',
-    'foundation.topbar',
-
     'jquery-ui-datepicker',
-    'jquery-ui-datepicker-fr'
+    'jquery-ui-datepicker-fr',
+
+    'bootstrap-affix',
+    'bootstrap-alert',
+    'bootstrap-button',
+    'bootstrap-carousel',
+    'bootstrap-collapse',
+    'bootstrap-dropdown',
+    'bootstrap-modal',
+    'bootstrap-popover',
+    'bootstrap-scrollspy',
+    'bootstrap-tab',
+    'bootstrap-tooltip',
+    'bootstrap-transition'
 
 ],
 
@@ -65,8 +70,6 @@ function(
 		},
 
 		initLayout: function() {
-
-			$(document).foundation();
 
 			$('#content textarea.editor').each(function() {
 				var editor = CKEDITOR.replace($(this)[0],{

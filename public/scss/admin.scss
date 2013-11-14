@@ -1,6 +1,6 @@
-@import "../js/components/foundation/scss/normalize";
-@import "../js/components/foundation/scss/foundation";
-@import "admin/icons";
+$icon-font-path: "/js/components/sass-bootstrap/fonts/";
+@import "../js/components/sass-bootstrap/lib/bootstrap";
+
 @import "admin/jqueryui";
 @import "admin/fineuploader";
 @import "admin/photoUploader";

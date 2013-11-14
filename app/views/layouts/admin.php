@@ -9,7 +9,7 @@
 
 	<title><?=$title?></title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-ico">
 	<link rel="icon" href="/favicon.gif" type="image/gif">
@@ -29,50 +29,53 @@
 <body class="<?=str_replace('.','_',$route)?>" onload="WINDOW_LOADED = true;">
 
 	<header id="header">
-		<nav class="top-bar" data-options="back_text:Retour">
-			<ul class="title-area">
-				<li class="name">
-					<h1><a href="<?=URL::route('admin')?>">Administration</a></h1>
-				</li>
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-			</ul>
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<?php if(Auth::check()) { ?>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#admin-navbar-collapse-1">
+					<span class="sr-only">Menu</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<?php } ?>
+				<a class="navbar-brand" href="<?=URL::route('admin')?>">Administration</a>
+			</div>
+
 
 			<?php if(Auth::check()) { ?>
-			<section class="top-bar-section">
-				<ul class="right">
-					<li class="has-dropdown">
-						<a href="<?=URL::route('admin.pages.index')?>">Pages</a>
+			<div class="collapse navbar-collapse" id="admin-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="<?=URL::route('admin.pages.index')?>" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
 
-						<ul class="dropdown">
+						<ul class="dropdown-menu">
 							<li><a href="<?=URL::route('admin.pages.edit',array('accueil'))?>">Accueil</a></li>
 							<li><a href="<?=URL::route('admin.pages.edit',array('a-propos'))?>">À propos</a></li>
 							<li class="divider"></li>
 							<li><a href="<?=URL::route('admin.pages.index')?>">Voir toutes les pages →</a></li>
 						</ul>
 					</li>
-					<li class="divider"></li>
-					<li class="has-dropdown">
-						<a href="<?=URL::route('admin.users.index')?>">Utilisateurs</a>
-
-						<ul class="dropdown">
+					<li class="dropdown">
+						<a href="<?=URL::route('admin.users.index')?>" class="dropdown-toggle" data-toggle="dropdown">Utilisateurs <b class="caret"></b></a>
+						<ul class="dropdown-menu">
 							<li><a href="<?=URL::route('admin.users.create')?>">Ajouter un utilisateur</a></li>
 							<li class="divider"></li>
 							<li><a href="<?=URL::route('admin.users.index')?>">Voir tous les utilisateurs →</a></li>
 						</ul>
 					</li>
-					<li class="divider"></li>
 					<li><a href="<?=URL::action('AdminLoginController@getLogout')?>">Déconnexion</a></li>
 				</ul>
-			</section>
+			</div>
 			<?php } ?>
 		</nav>
-
 	</header>
 	
 	<section id="content">
 		<div class="container">
 			<div class="row">
-				<div class="small-12 columns">
+				<div class="col-sm-12">
 					<?=!isset($content) ? '':$content?>
 				</div>
 			</div>

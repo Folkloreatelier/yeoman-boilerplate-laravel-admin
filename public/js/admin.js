@@ -10,6 +10,7 @@ require.config({
         'jquery-fineuploader': 'vendor/fineuploader/jquery.fineuploader-3.7.1',
         'croppa' : '../packages/bkwld/croppa/js/croppa',
 
+        //jQuery UI
         'jquery-ui-core': 'components/jquery-ui/ui/jquery.ui.core',
         'jquery-ui-widget': 'components/jquery-ui/ui/jquery.ui.widget',
         'jquery-ui-mouse': 'components/jquery-ui/ui/jquery.ui.mouse',
@@ -19,21 +20,19 @@ require.config({
         'jquery-ui-datepicker': 'components/jquery-ui/ui/jquery.ui.datepicker',
         'jquery-ui-datepicker-fr': 'components/jquery-ui/ui/i18n/jquery.ui.datepicker-fr-CA',
 
-        'foundation' : 'components/foundation/js/foundation/foundation',
-        'foundation.alerts' : 'components/foundation/js/foundation/foundation.alerts',
-        'foundation.clearing' : 'components/foundation/js/foundation/foundation.clearing',
-        'foundation.cookie' : 'components/foundation/js/foundation/foundation.cookie',
-        'foundation.dropdown' : 'components/foundation/js/foundation/foundation.dropdown',
-        'foundation.forms' : 'components/foundation/js/foundation/foundation.forms',
-        'foundation.interchange' : 'components/foundation/js/foundation/foundation.interchange',
-        'foundation.joyride' : 'components/foundation/js/foundation/foundation.joyride',
-        'foundation.magellan' : 'components/foundation/js/foundation/foundation.magellan',
-        'foundation.orbit' : 'components/foundation/js/foundation/foundation.orbit',
-        'foundation.placeholder' : 'components/foundation/js/foundation/foundation.placeholder',
-        'foundation.reveal' : 'components/foundation/js/foundation/foundation.reveal',
-        'foundation.section' : 'components/foundation/js/foundation/foundation.section',
-        'foundation.tooltips' : 'components/foundation/js/foundation/foundation.tooltips',
-        'foundation.topbar' : 'components/foundation/js/foundation/foundation.topbar',
+        //Bootstrap
+        'bootstrap-affix': 'components/sass-bootstrap/js/affix',
+        'bootstrap-alert': 'components/sass-bootstrap/js/alert',
+        'bootstrap-dropdown': 'components/sass-bootstrap/js/dropdown',
+        'bootstrap-tooltip': 'components/sass-bootstrap/js/tooltip',
+        'bootstrap-modal': 'components/sass-bootstrap/js/modal',
+        'bootstrap-transition': 'components/sass-bootstrap/js/transition',
+        'bootstrap-button': 'components/sass-bootstrap/js/button',
+        'bootstrap-popover': 'components/sass-bootstrap/js/popover',
+        'bootstrap-carousel': 'components/sass-bootstrap/js/carousel',
+        'bootstrap-scrollspy': 'components/sass-bootstrap/js/scrollspy',
+        'bootstrap-collapse': 'components/sass-bootstrap/js/collapse',
+        'bootstrap-tab': 'components/sass-bootstrap/js/tab',
         
         'app' : 'admin/app',
         'controllers' : 'admin/controllers',
@@ -51,22 +50,21 @@ require.config({
         'ckeditor' : {exports: 'CKEDITOR'},
         'jquery-fineuploader' : {deps: ['jquery']},
 
-        'foundation' : {deps: ['jquery']},
-        'foundation.alerts' : {deps: ['foundation']},
-        'foundation.clearing' : {deps: ['foundation']},
-        'foundation.cookie' : {deps: ['foundation']},
-        'foundation.dropdown' : {deps: ['foundation']},
-        'foundation.forms' : {deps: ['foundation']},
-        'foundation.interchange' : {deps: ['foundation']},
-        'foundation.joyride' : {deps: ['foundation']},
-        'foundation.magellan' : {deps: ['foundation']},
-        'foundation.orbit' : {deps: ['foundation']},
-        'foundation.placeholder' : {deps: ['foundation']},
-        'foundation.reveal' : {deps: ['foundation']},
-        'foundation.section' : {deps: ['foundation']},
-        'foundation.tooltips' : {deps: ['foundation']},
-        'foundation.topbar' : {deps: ['foundation']},
+        //Bootstrap
+        'bootstrap-affix': {deps:['jquery']},
+        'bootstrap-alert': {deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-button': {deps:['jquery']},
+        'bootstrap-carousel': {deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-collapse': {deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-dropdown': {deps:['jquery']},
+        'bootstrap-modal':{deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-popover': {deps:['jquery', 'bootstrap-tooltip']},
+        'bootstrap-scrollspy': {deps:['jquery']},
+        'bootstrap-tab': {deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-tooltip': {deps:['jquery', 'bootstrap-transition']},
+        'bootstrap-transition': {deps:['jquery']},
         
+        //jQuery UI
         'jquery-ui-core': {deps: ['jquery']},
         'jquery-ui-position': {deps: ['jquery-ui-core']},
         'jquery-ui-widget': {deps: ['jquery-ui-core']},
@@ -81,7 +79,7 @@ require.config({
 
 require(
 [
-	'jquery','underscore','backbone',
+    'jquery','underscore','backbone',
 
     'app'
 
