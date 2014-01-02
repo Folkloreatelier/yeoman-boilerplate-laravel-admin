@@ -12,7 +12,7 @@ View::creator(array('layouts.main'), function($view) {
 	if(App::environment() == 'local') {
 		$footerContainer->add('main','js/components/requirejs/require.js',array(),array('data-main'=>'/js/main'));
 	} else {
-		$footerContainer->add('main','js/main-build.js');
+		$footerContainer->add('main','js/main.build.js');
 	}
 
 	$view->with(array(
