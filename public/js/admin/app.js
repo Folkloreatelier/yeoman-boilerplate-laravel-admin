@@ -73,7 +73,7 @@ function(
 
 			$('#content textarea.editor').each(function() {
 				var editor = CKEDITOR.replace($(this)[0],{
-					customConfig : '/js/ckeditor_config.js',
+					customConfig : '/js/admin/ckeditor_config.js',
 					height: 500
 				});
 			});

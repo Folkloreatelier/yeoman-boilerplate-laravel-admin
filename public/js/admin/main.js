@@ -1,5 +1,7 @@
 require.config({
 
+    baseUrl: '/js',
+
     paths: {
         'jquery': 'components/jquery/jquery.min',
         'text': 'components/requirejs-text/text',
@@ -7,7 +9,7 @@ require.config({
         'backbone': 'components/backbone/backbone',
 
         'ckeditor' : 'components/ckeditor/ckeditor',
-        'jquery-fineuploader': 'vendor/fineuploader/jquery.fineuploader-3.7.1',
+        'jquery-fineuploader': 'admin/vendor/fineuploader/jquery.fineuploader-3.7.1',
         'croppa' : '../packages/bkwld/croppa/js/croppa',
 
         //jQuery UI

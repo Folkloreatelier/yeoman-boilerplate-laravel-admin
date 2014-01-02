@@ -23,7 +23,7 @@ View::creator(array('layouts.main'), function($view) {
 
 });
 
-View::creator(array('layouts.admin'), function($view) {
+View::creator(array('admin.layout'), function($view) {
 
 	$headContainer = Asset::container('head');
 	$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
@@ -35,7 +35,7 @@ View::creator(array('layouts.admin'), function($view) {
 	if(App::environment() == 'local') {
 		$footerContainer->add('admin','js/components/requirejs/require.js',array(),array('data-main'=>'/js/admin/main'));
 	} else {
-		$footerContainer->add('admin','js/admin/app.build.js');
+		$footerContainer->add('admin','js/admin/main.build.js');
 	}
 
 	$view->with(array(

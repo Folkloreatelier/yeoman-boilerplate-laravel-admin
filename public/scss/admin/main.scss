@@ -1,6 +1,6 @@
 $icon-font-path: "/js/components/sass-bootstrap/fonts/";
-@import "../js/components/sass-bootstrap/lib/bootstrap";
+@import "../../js/components/sass-bootstrap/lib/bootstrap";
 
-@import "admin/jqueryui";
-@import "admin/fineuploader";
-@import "admin/photoUploader";
+@import "jqueryui";
+@import "fineuploader";
+@import "photoUploader";
