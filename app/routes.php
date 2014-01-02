@@ -2,21 +2,11 @@
 
 /*
  *
- * Language
- *
- */
-$languages = Config::get('app.languages');
-$locale = Request::segment(1);
-if(in_array($locale, $languages)){
-	App::setLocale($locale);
-}
-
-/*
- *
  * Normal routes
  *
  */
 Route::get('/', array(
+	'before' => 'locale:fr',
 	'as' => 'home',
 	'uses' => 'HomeController@index'
 ));
@@ -29,7 +19,7 @@ Route::get('/', array(
 Route::controller('login', 'AdminLoginController');
 Route::group(array(
 	'prefix' => 'admin',
-	'before' => 'auth'
+	'before' => array('auth','locale:en'),
 ), function() {
 
 	Route::get('/', array(
