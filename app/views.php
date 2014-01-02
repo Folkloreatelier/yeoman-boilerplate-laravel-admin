@@ -1,8 +1,5 @@
 <?php
 
-View::share('language', Config::get('app.locale'));
-View::share('otherLanguage', Config::get('app.locale') == 'fr' ? 'en':'fr');
-
 View::creator(array('layouts.main'), function($view) {
 
 	$headContainer = Asset::container('head');
@@ -21,7 +18,7 @@ View::creator(array('layouts.main'), function($view) {
 	$view->with(array(
 		'title' => trans('meta.title'),
 		'description' => trans('meta.description'),
-		'route' => Route::currentRouteName()
+		'route' => Route::current()->getName()
 	));
 
 });
@@ -30,20 +27,20 @@ View::creator(array('layouts.admin'), function($view) {
 
 	$headContainer = Asset::container('head');
 	$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
-	$headContainer->add('styles','css/admin.css');
+	$headContainer->add('styles','css/admin/main.css');
 
 	//Footer Assets
 	$footerContainer = Asset::container('footer');
-	$footerContainer->add('utils','js/utils.js');
+	$footerContainer->add('utils','js/admin/utils.js');
 	if(App::environment() == 'local') {
-		$footerContainer->add('admin','js/components/requirejs/require.js',array(),array('data-main'=>'/js/admin'));
+		$footerContainer->add('admin','js/components/requirejs/require.js',array(),array('data-main'=>'/js/admin/main'));
 	} else {
-		$footerContainer->add('admin','js/admin-build.js');
+		$footerContainer->add('admin','js/admin/app.build.js');
 	}
 
 	$view->with(array(
 		'title' => 'Administration',
-		'route' => Route::currentRouteName()
+		'route' => Route::current()->getName()
 	));
 
 });

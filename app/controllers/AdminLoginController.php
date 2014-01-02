@@ -2,7 +2,7 @@
 
 class AdminLoginController extends BaseController {
 
-	public $layout = 'layouts.admin';
+	public $layout = 'admin.layout';
 
 	public function __construct() {
 

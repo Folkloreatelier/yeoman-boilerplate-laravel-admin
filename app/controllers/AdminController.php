@@ -2,7 +2,7 @@
 
 class AdminController extends BaseController {
 
-	public $layout = 'layouts.admin';
+	public $layout = 'admin.layout';
 
 	public function index()
 	{

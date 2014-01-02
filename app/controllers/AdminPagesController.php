@@ -2,7 +2,7 @@
 
 class AdminPagesController extends \BaseController {
 
-	protected $layout = 'layouts.admin';
+	protected $layout = 'admin.layout';
 
 	/**
 	 * Display a listing of the resource.
