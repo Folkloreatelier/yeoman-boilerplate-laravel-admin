@@ -25,6 +25,7 @@ function(
 
 ) {
 
+	'use strict';
 
 	var PhotoUploadView = Backbone.View.extend({
 
