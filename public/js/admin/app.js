@@ -26,8 +26,6 @@ function(
 
 			App.initEvents();
 
-			App.initLayout();
-
 			Backbone.history.start({pushState: true});
 
 		},
