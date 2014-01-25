@@ -19,7 +19,7 @@ View::creator(array('layouts.main'), function($view)
 	$view->with(array(
 		'title' => trans('meta.title'),
 		'description' => trans('meta.description'),
-		'route' => Route::current()->getName()
+		'route' => Route::current() ? Route::current()->getName():'errors.404'
 	));
 
 });
@@ -45,7 +45,7 @@ View::creator(array('admin.layout'), function($view)
 
 	$view->with(array(
 		'title' => 'Administration',
-		'route' => Route::current()->getName()
+		'route' => Route::current() ? Route::current()->getName():'errors.404'
 	));
 
 });
