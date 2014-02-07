@@ -8,7 +8,7 @@ define(
 	'text!templates/photoUploader.html',
 	'text!templates/photoUploader.photo.html',
 
-	'croppa',
+	'image',
 
 	'jquery-fineuploader',
 	'jquery-ui-sortable'
@@ -21,7 +21,7 @@ function(
 	uploadTemplate,
 	photoTemplate,
 
-	Croppa
+	Img
 
 ) {
 
@@ -116,9 +116,9 @@ function(
 
 			var photoURL = '/files/photos/'+photo.filename;
 			if(this.options.multiple) {
-				photoURL = Croppa.url(photoURL, 100, 100, ['resize', {quadrant: 'T'}]);
+				photoURL = Img.url(photoURL, 100, 100, {'crop':true});
 			} else {
-				photoURL = Croppa.url(photoURL, this.options.maxWidth, this.options.maxHeight);
+				photoURL = Img.url(photoURL, this.options.maxWidth, this.options.maxHeight);
 			}
 
 			var photoHTML = this.templatePhoto({

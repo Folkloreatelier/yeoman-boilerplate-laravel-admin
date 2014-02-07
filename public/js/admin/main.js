@@ -10,7 +10,7 @@ require.config({
 
         'ckeditor' : 'components/ckeditor/ckeditor',
         'jquery-fineuploader': 'admin/vendor/fineuploader/jquery.fineuploader-3.7.1',
-        'croppa' : '../packages/bkwld/croppa/js/croppa',
+        'image' : '../packages/folklore/image/js/image',
 
         //jQuery UI
         'jquery-ui-core': 'components/jquery-ui/ui/jquery.ui.core',
