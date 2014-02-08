@@ -41,6 +41,8 @@ Route::group(array(
  */
 App::missing(function($exception)
 {
-	return View::make('layouts.main')
+	$view = View::make('layouts.main')
     			->nest('content','errors.404');
+	$response = Response::make($view,404);
+	return $response;
 });
