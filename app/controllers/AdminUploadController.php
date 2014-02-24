@@ -1,8 +1,23 @@
 <?php
 
-class AdminUploadController extends BaseController {
+class AdminUploadController extends AdminBaseController {
 
 	public $layout = null;
+
+	public function postFile()
+	{
+
+		if(Input::hasFile('file')) {
+			return array(
+				'success' => true,
+				'response' => $_FILES['file']
+			);
+		}
+
+		return array(
+			'success' => false
+		);
+	}
 
 	public function postPhoto()
 	{

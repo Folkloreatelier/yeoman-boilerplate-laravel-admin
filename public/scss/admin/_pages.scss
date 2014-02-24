@@ -1,0 +1,57 @@
+.blocks {
+
+	.noblock {
+		background:#eee;
+		text-align:center;
+		padding-top:40px;
+		padding-bottom:40px;
+		color:#666;
+	}
+
+	.list {
+
+		margin-top:10px;
+
+		.block-placeholder {
+			@extend .col-sm-12;
+			@extend .col-md-12;
+			background:#eee;
+		}
+
+		.block {
+
+			> .thumbnail {
+				padding:0px;
+			}
+
+			.nav-tabs {
+				padding:0 10px;
+				background:#f0f0f0;
+
+				li.disabled a {
+					cursor:move;
+				}
+
+				li.remove {
+					float:right;
+					a {
+						color:#cc0000;
+					}
+				}
+			}
+
+			.tab-content {
+				.tab-pane {
+					padding:10px;
+				}
+			}
+
+			.thumbnail > .form-group {
+				padding:10px;
+			}
+
+		}
+
+	}
+
+}

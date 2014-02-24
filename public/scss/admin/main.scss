@@ -1,6 +1,40 @@
+/*
+	Bootstrap
+ */
 $icon-font-path: "/js/components/sass-bootstrap/fonts/";
+$grid-gutter-width: 30px;
+$container-tablet: ((720px + $grid-gutter-width));
+$container-desktop: ((940px + $grid-gutter-width));
+$container-large-desktop: ((940px + $grid-gutter-width));
 @import "../../js/components/sass-bootstrap/lib/bootstrap";
 
+/*
+	Compass
+ */
+@import "compass/css3/box-sizing";
+
+/*
+	Libraries
+ */
+@import "tokenfield";
 @import "jqueryui";
 @import "fineuploader";
-@import "photoUploader";
+@import "uploader";
+@import "pages";
+
+#content {
+	padding-bottom:40px;
+}
+
+.nav-tabs-locale {
+	margin-top:40px;
+
+	.tab-content {
+		margin-top:20px;
+	}
+}
+
+fieldset {
+	margin-bottom:40px;
+}
+

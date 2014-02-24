@@ -1,8 +1,6 @@
 <?php
 
-class AdminLoginController extends BaseController {
-
-	public $layout = 'admin.layout';
+class AdminLoginController extends AdminBaseController {
 
 	public function __construct() {
 

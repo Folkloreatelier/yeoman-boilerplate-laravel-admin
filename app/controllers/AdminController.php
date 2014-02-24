@@ -1,8 +1,6 @@
 <?php
 
-class AdminController extends BaseController {
-
-	public $layout = 'admin.layout';
+class AdminController extends AdminBaseController {
 
 	public function index()
 	{

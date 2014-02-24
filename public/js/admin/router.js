@@ -4,10 +4,12 @@ define(
 
 	'ckeditor',
 
-	'views/photoUploader',
+    'views/uploader',
+    'views/pageBlocks',
 
     'jquery-ui-datepicker',
     'jquery-ui-datepicker-fr',
+    'jquery-ui-autocomplete',
 
     'bootstrap-affix',
     'bootstrap-alert',
@@ -20,7 +22,8 @@ define(
     'bootstrap-scrollspy',
     'bootstrap-tab',
     'bootstrap-tooltip',
-    'bootstrap-transition'
+    'bootstrap-transition',
+    'bootstrap-tokenfield'
 
 ],
 
@@ -30,7 +33,8 @@ function(
 
 	CKEDITOR,
 
-	PhotoUploaderView
+    UploaderView,
+    PageBlocksView
 
 ) {
 
@@ -39,6 +43,8 @@ function(
 	var Router = Backbone.Router.extend({
 
         routes: {
+            'admin/pages/create' : 'pagesForm',
+            'admin/pages/:slug/edit' : 'pagesForm',
             '*path' : 'all'
         },
 
@@ -47,6 +53,17 @@ function(
 
             this._initTable();
             this._initForm();
+
+        },
+
+        pagesForm: function() {
+
+            this._initForm();
+
+            var pageBlocks = new PageBlocksView({
+                el: $('#content .blocks')
+            });
+            pageBlocks.render();
 
         },
 
@@ -64,7 +81,8 @@ function(
             $('#content textarea.editor').each(function() {
                 var editor = CKEDITOR.replace($(this)[0],{
                     customConfig : '/js/admin/ckeditor_config.js',
-                    height: $(this).attr('data-editor-height') ? parseInt($(this).attr('data-editor-height')):400
+                    height: $(this).attr('data-editor-height') ? parseInt($(this).attr('data-editor-height')):400,
+                    toolbar: $(this).attr('data-editor-toolbar') || 'Basic'
                 });
             });
 
@@ -76,12 +94,14 @@ function(
                 });
             });
 
-            //Guest photo
-            $('#content .photoUploader').each(function() {
-                var uploader = new PhotoUploaderView({
+            //Uploader
+            $('#content .uploader').each(function() {
+                var uploader = new UploaderView({
                     el: $(this),
-                    inputName: $(this).attr('data-input-name'),
-                    multiple: $(this).attr('data-multiple') ? Boolean($(this).attr('data-multiple')):false
+                    inputName: $(this).data('uploader-inputname') ? $(this).data('uploader-inputname'):'files[]',
+                    setInputValue: function() {
+                        this.$('input[type=hidden]').val(this.model.get('id'));
+                    }
                 });
                 uploader.render();
             });

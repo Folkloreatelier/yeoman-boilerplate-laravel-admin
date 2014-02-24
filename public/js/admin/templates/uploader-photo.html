@@ -1,0 +1,19 @@
+<div class="thumbnail">
+	<%  %>
+	<% if(!model.get('uploader_completed')) { %>
+	<div class="progress">
+		<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= model.get('uploader_progress') * 100 %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= model.get('uploader_progress') * 100 %>%">
+			<span class="sr-only"><%= model.get('uploader_progress') * 100 %>% Loaded</span>
+		</div>
+	</div>
+	<% } else if(photo) { %>
+	<div class="image handle" style="background-image:url('<%= photo %>');"></div>
+	<% } %>
+	<div class="caption">
+		<p>
+			<a href="#" class="btn btn-xs btn-danger btn-cancel" <%= model.get('uploader_completed') ? 'style="display:none;"':'' %>>Annuler</a>
+			<a href="#" class="btn btn-xs btn-danger btn-delete" <%= model.get('uploader_completed') ? '':'style="display:none;"' %>>Supprimer</a>
+		</p>
+	</div>
+	<input type="hidden" name="<%= options.inputName %>" />
+</div>

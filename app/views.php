@@ -45,7 +45,8 @@ View::creator(array('admin.layout'), function($view)
 
 	$view->with(array(
 		'title' => 'Administration',
-		'route' => Route::current() ? Route::current()->getName():'errors.404'
+		'route' => Route::current() ? Route::current()->getName():'errors.404',
+		'pages' => Page::all()
 	));
 
 });

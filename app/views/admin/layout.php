@@ -51,10 +51,11 @@
 						<a href="<?=URL::route('admin.pages.index')?>" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
 
 						<ul class="dropdown-menu">
-							<li><a href="<?=URL::route('admin.pages.edit',array('accueil'))?>">Accueil</a></li>
-							<li><a href="<?=URL::route('admin.pages.edit',array('a-propos'))?>">À propos</a></li>
+							<?php foreach($pages as $page) { ?>
+							<li><a href="<?=URL::route('admin.pages.edit',array($page->id))?>"><?=$page->{'title_'.$language}?></a></li>
+							<?php } ?>
 							<li class="divider"></li>
-							<li><a href="<?=URL::route('admin.pages.index')?>">Voir toutes les pages →</a></li>
+							<li><a href="<?=URL::route('admin.pages.index')?>">Toutes les pages</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

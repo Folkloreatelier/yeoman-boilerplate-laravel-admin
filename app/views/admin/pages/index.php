@@ -1,34 +1,46 @@
 <h1>Pages</h1>
 
-<div align="right">
-    <a href="<?=URL::route('admin.pages.create')?>" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter une page</a>
-</div>
-
 <hr />
 
-<table width="100%" class="table table-striped">
+<table width="100%" class="table table-striped items">
     <thead>
         <tr>
             <th width="50">ID</th>
             <th>Titre</th>
-            <th width="100">&nbsp;</th>
+            <th width="150">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($items as $item) { ?>
         <tr>
             <td><?=$item->id?></td>
-            <td><?=$item->title_fr?></td>
+            <td>
+                <a href="<?=URL::route('admin.pages.edit',$item->id)?>">
+                    <?=$item->parent ? $item->parent->title_fr.' &gt; ':''?><?=$item->title_fr?>
+                </a>
+            </td>
             <td align="right">
-                <a href="<?=URL::route('admin.pages.destroy',$item->id)?>" class="btn btn-xs btn-danger">Supprimer</a>
-                <a href="<?=URL::route('admin.pages.edit',$item->id)?>" class="btn btn-xs btn-default">Modifier</a>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <?=Form::open(array(
+                            'route' => array('admin.pages.destroy',$item->id),
+                            'method' => 'DELETE',
+                            'class'=>'form-horizontal delete'
+                        ))?>
+                        <a href="#" class="btn btn-xs btn-danger">Supprimer</a>
+                        <?=Form::close()?>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <a href="<?=URL::route('admin.pages.edit',$item->id)?>" class="btn btn-xs btn-default">Modifier</a>
+                    </div>
+                </div>
             </td>
         </tr>
         <?php } ?>
 
         <?php if(!sizeof($items)) { ?>
         <tr>
-            <td colspan="3" align="center">Aucune page pour le moment</td>
+            <td colspan="4" align="center">Aucune page pour le moment</td>
         </tr>
         <?php } ?>
     </tbody>

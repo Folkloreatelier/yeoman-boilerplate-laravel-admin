@@ -19,7 +19,7 @@ Route::get('/', array(
 Route::controller('login', 'AdminLoginController');
 Route::group(array(
 	'prefix' => 'admin',
-	'before' => array('auth','locale:en'),
+	'before' => array('auth','locale:fr'),
 ), function() {
 
 	Route::get('/', array(
@@ -27,9 +27,16 @@ Route::group(array(
 		'uses' => 'AdminController@index'
 	));
 	
+	//Upload
 	Route::controller('upload', 'AdminUploadController');
-	Route::resource('pages', 'AdminPagesController');
-	Route::resource('users', 'AdminUsersController');
+
+	//Resources
+	Route::resource('pages', 'AdminPagesController',array(
+		'except' => array('show')
+	));
+	Route::resource('users', 'AdminUsersController',array(
+		'except' => array('show')
+	));
 
 });
 

@@ -1,0 +1,35 @@
+<% if(!multiple) { %>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<a href="#" class="btn btn-primary btn-upload">Sélectionner <%= gallery ? 'une image':'un fichier'%></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<% if(gallery) { %>
+				<div class="files row"></div>
+			<% } else { %>
+				<ul class="files list-group"></ul>
+			<% } %>
+		</div>
+	</div>
+
+<% } else { %>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<a href="#" class="btn btn-primary btn-upload">Sélectionner <%= gallery ? 'des images':'des fichiers'%></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<% if(gallery) { %>
+				<div class="files row"></div>
+			<% } else { %>
+				<ul class="files list-group"></ul>
+			<% } %>
+		</div>
+	</div>
+
+<% } %>

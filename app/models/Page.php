@@ -1,12 +1,36 @@
 <?php
 
-class Page extends Eloquent {
-
+class Page extends ImageableEloquent {
 
 	protected $table = 'pages';
 
-	protected $fillable = array('title_fr','title_en','slug_fr','slug_en','body_fr','body_en');
+	protected $fillable = array(
+		'parent_id',
+		'title_fr',
+		'title_en',
+		'slug_fr',
+		'slug_en',
+		'body_fr',
+		'body_en'
+	);
 
+	/*
+	 *
+	 * Relationships
+	 *
+	 */
+	public function parent()
+	{
+		return $this->belongsTo('Page','parent_id');
+	}
+	public function children()
+	{
+		return $this->hasMany('Page','parent_id');
+	}
+	public function blocks()
+	{
+		return $this->hasMany('PageBlock','page_id')->orderBy('order','asc');
+	}
 
 	/*
 	 *

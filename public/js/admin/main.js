@@ -9,7 +9,7 @@ require.config({
         'backbone': 'components/backbone/backbone',
 
         'ckeditor' : 'components/ckeditor/ckeditor',
-        'jquery-fineuploader': 'admin/vendor/fineuploader/jquery.fineuploader-3.7.1',
+        'jquery-fineuploader': 'admin/vendor/fineuploader-4.1.1/jquery.fineuploader-4.1.1',
         'image' : '../packages/folklore/image/js/image',
 
         //jQuery UI
@@ -19,6 +19,8 @@ require.config({
         'jquery-ui-position': 'components/jquery-ui/ui/jquery.ui.position',
         'jquery-ui-draggable': 'components/jquery-ui/ui/jquery.ui.draggable',
         'jquery-ui-sortable': 'components/jquery-ui/ui/jquery.ui.sortable',
+        'jquery-ui-autocomplete': 'components/jquery-ui/ui/jquery.ui.autocomplete',
+        'jquery-ui-menu': 'components/jquery-ui/ui/jquery.ui.menu',
         'jquery-ui-datepicker': 'components/jquery-ui/ui/jquery.ui.datepicker',
         'jquery-ui-datepicker-fr': 'components/jquery-ui/ui/i18n/jquery.ui.datepicker-fr-CA',
 
@@ -35,6 +37,8 @@ require.config({
         'bootstrap-scrollspy': 'components/sass-bootstrap/js/scrollspy',
         'bootstrap-collapse': 'components/sass-bootstrap/js/collapse',
         'bootstrap-tab': 'components/sass-bootstrap/js/tab',
+
+        'bootstrap-tokenfield': 'components/bootstrap-tokenfield/bootstrap-tokenfield/bootstrap-tokenfield',
         
         'app' : 'admin/app',
         'controllers' : 'admin/controllers',
@@ -65,6 +69,8 @@ require.config({
         'bootstrap-tab': {deps:['jquery', 'bootstrap-transition']},
         'bootstrap-tooltip': {deps:['jquery', 'bootstrap-transition']},
         'bootstrap-transition': {deps:['jquery']},
+
+        'bootstrap-tokenfield': {deps:['jquery']},
         
         //jQuery UI
         'jquery-ui-core': {deps: ['jquery']},
@@ -74,7 +80,9 @@ require.config({
         'jquery-ui-datepicker-fr': {deps: ['jquery-ui-datepicker']},
         'jquery-ui-mouse': {deps: ['jquery-ui-core','jquery-ui-widget']},
         'jquery-ui-draggable': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-mouse']},
-        'jquery-ui-sortable': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-mouse']}
+        'jquery-ui-sortable': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-mouse']},
+        'jquery-ui-menu': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position']},
+        'jquery-ui-autocomplete': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-menu']}
 
     }
 });

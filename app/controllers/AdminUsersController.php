@@ -1,8 +1,6 @@
 <?php
 
-class AdminUsersController extends \BaseController {
-
-	protected $layout = 'admin.layout';
+class AdminUsersController extends AdminBaseController {
 
 	/**
 	 * Display a listing of the resource.

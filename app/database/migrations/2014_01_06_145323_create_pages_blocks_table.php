@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration {
+class CreatePagesBlocksTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,13 @@ class CreatePagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pages', function(Blueprint $table)
+		Schema::create('pages_blocks', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('parent_id');
-			foreach(Config::get('app.available_locale') as $lang) {
-				$table->string('title_'.$lang);
-				$table->text('body_'.$lang);
-				$table->string('slug_'.$lang)->unique();
-			}
+			$table->integer('page_id')->index();
+			$table->string('type',50);
+			$table->smallInteger('order')->index();
+			$table->longText('data');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +30,7 @@ class CreatePagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pages');
+		Schema::drop('pages_blocks');
 	}
 
 }
