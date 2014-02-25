@@ -46,4 +46,5 @@ PageBlock::deleting(function($item)
 			$item->delete();
 		}
 	}
+	return true;
 });

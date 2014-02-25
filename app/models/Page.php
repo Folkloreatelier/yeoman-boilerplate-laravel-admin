@@ -6,11 +6,13 @@ class Page extends ImageableEloquent {
 
 	protected $fillable = array(
 		'parent_id',
+
 		'title_fr',
-		'title_en',
 		'slug_fr',
-		'slug_en',
 		'body_fr',
+
+		'title_en',
+		'slug_en',
 		'body_en'
 	);
 
@@ -34,6 +36,43 @@ class Page extends ImageableEloquent {
 
 	/*
 	 *
+	 * Sync methods
+	 *
+	 */
+	public function syncBlocks($blocks = array())
+	{
+		//Save blocks
+		$blocks = array();
+		if(is_array($blocks) && sizeof($blocks)) {
+			$ids = array();
+			foreach($blocks as $block)
+			{
+				$blockModel = (int)$block['id'] > 0 ? PageBlock::find($block['id']):new PageBlock();
+				if(!$blockModel)
+				{
+					continue;
+				}
+				$blockModel->fill($block);
+				$blockModel->order = sizeof($ids);
+				$blockModel->save();
+				$this->blocks()->save($blockModel);
+				$ids[] = $blockModel->id;
+
+				//Sync block photos
+				$blockModel->syncPhotos(isset($block['photos']) ? $block['photos']:array());
+			}
+			$this->blocks()
+					->whereNotIn('id',$ids)
+					->delete();
+		} else {
+			foreach($this->blocks as $block) {
+				$block->delete();
+			}
+		}
+	}
+
+	/*
+	 *
 	 * Accessors and Mutators
 	 *
 	 */
@@ -47,3 +86,13 @@ class Page extends ImageableEloquent {
 	}
 
 }
+
+Page::deleting(function($item)
+{
+	if($item->photos) {
+		foreach($item->photos as $item) {
+			$item->delete();
+		}
+	}
+	return true;
+});

@@ -78,12 +78,15 @@ class AdminPagesController extends AdminBaseController {
 			$item = new Page();
 		}
 
-		$validator = Validator::make($input,array(
+		//Validate
+		$rules = array(
 			'parent_id' => array('exists:pages,id'),
 			'title_'.$this->language => array('required')
-		),array(
+		);
+		$messages = array(
 			'title_'.$this->language.'.required' => 'Vous devez entrer un titre'
-		));
+		);
+		$validator = Validator::make($input,$rules,$messages);
 		if($validator->fails()) {
 			$redirect = $isNew ? Redirect::route('admin.pages.create'):Redirect::route('admin.pages.edit',array($id));
 		    return $redirect->withInput()
@@ -94,32 +97,10 @@ class AdminPagesController extends AdminBaseController {
 		$item->save();
 
 		//Save blocks
-		$blocks = array();
-		if(Input::has('blocks')) {
-			$ids = array();
-			foreach(Input::get('blocks') as $block) {
+		$item->syncBlocks(Input::get('blocks',array()));
 
-				$blockModel = (int)$block['id'] > 0 ? PageBlock::find($block['id']):new PageBlock();
-				$blockModel->fill($block);
-				$blockModel->order = sizeof($ids);
-				$blockModel->save();
-				$item->blocks()->save($blockModel);
-				$ids[] = $blockModel->id;
-
-				//Photos
-				$blockModel->savePhotos(isset($block['photos']) ? $block['photos']:array());
-			}
-			$item->blocks()
-					->whereNotIn('id',$ids)
-					->delete();
-		} else {
-			foreach($item->blocks as $block) {
-				$block->delete();
-			}
-		}
-
-		//Save page photos
-		$item->savePhotos(Input::get('photos',array()));
+		//Sync page photos
+		$item->syncPhotos(Input::get('photos',array()));
 
 		return Redirect::route('admin.pages.index');
 	}
