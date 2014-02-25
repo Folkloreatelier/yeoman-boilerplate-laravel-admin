@@ -2,13 +2,13 @@
 
 class ImageableEloquent extends Eloquent {
 
-	protected $photosOrderable = true;
+	protected $imageable_order = true;
 
 	public function photos()
 	{
 		$query = $this->morphMany('Photo','imageable');
 
-		if($this->photosOrderable)
+		if($this->imageable_order)
 		{
 			$query->orderBy('imageable_order','asc');
 		}
@@ -24,7 +24,7 @@ class ImageableEloquent extends Eloquent {
 			$photoOrder = 0;
 			foreach($photos as $photo) {
 				$photo = Photo::find($photo);
-				if($this->photosOrderable && (int)$photo->imageable_order != $photoOrder) {
+				if($this->imageable_order && (int)$photo->imageable_order != $photoOrder) {
 					$photo->fill(array(
 						'imageable_order' => $photoOrder
 					));
