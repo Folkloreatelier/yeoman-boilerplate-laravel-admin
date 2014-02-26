@@ -89,10 +89,19 @@ class Page extends ImageableEloquent {
 
 Page::deleting(function($item)
 {
+	//Delete associated photos
 	if($item->photos) {
 		foreach($item->photos as $item) {
 			$item->delete();
 		}
 	}
+
+	//Delete associated blocks
+	if($item->blocks) {
+		foreach($item->blocks as $item) {
+			$item->delete();
+		}
+	}
+	
 	return true;
 });
