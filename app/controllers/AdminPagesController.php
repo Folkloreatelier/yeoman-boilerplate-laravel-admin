@@ -113,12 +113,12 @@ class AdminPagesController extends AdminBaseController {
 	 */
 	public function destroy($id)
 	{
-		$item = Post::find($id);
+		$item = Page::find($id);
 		if(!$item) return App::abort(404);
 
 		$item->delete();
 
-		return Redirect::route('admin.news.index');
+		return Redirect::route('admin.pages.index');
 	}
 
 
