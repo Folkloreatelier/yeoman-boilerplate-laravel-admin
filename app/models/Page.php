@@ -42,7 +42,6 @@ class Page extends ImageableEloquent {
 	public function syncBlocks($blocks = array())
 	{
 		//Save blocks
-		$blocks = array();
 		if(is_array($blocks) && sizeof($blocks)) {
 			$ids = array();
 			foreach($blocks as $block)
