@@ -4,17 +4,7 @@ class Page extends ImageableEloquent {
 
 	protected $table = 'pages';
 
-	protected $fillable = array(
-		'parent_id',
-
-		'title_fr',
-		'slug_fr',
-		'body_fr',
-
-		'title_en',
-		'slug_en',
-		'body_en'
-	);
+	protected $fillable = array();
 
 	/*
 	 *
@@ -85,6 +75,19 @@ class Page extends ImageableEloquent {
 	}
 
 }
+
+Event::listen('eloquent.booting: Page',function($item) {
+	$fillable = array(
+		'parent_id'
+	);
+	foreach(Config::get('app.available_locale') as $lang) {
+		$fillable[] = 'title_'.$lang;
+		$fillable[] = 'slug_'.$lang;
+		$fillable[] = 'body_'.$lang;
+	}
+	$item->fillable($fillable);
+	
+});
 
 Page::deleting(function($item)
 {
