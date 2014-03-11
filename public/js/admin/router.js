@@ -2,8 +2,6 @@ define(
 [
 	'jquery','underscore','backbone',
 
-	'admin/init',
-
     'views/pageBlocks'
 
 ],
@@ -11,8 +9,6 @@ define(
 function(
 
 	$,_,Backbone,
-
-	Init,
 
     PageBlocksView
 
@@ -31,14 +27,14 @@ function(
 
         all: function(path) {
 
-            Init.table($('#content'));
-            Init.form($('#content'));
+            App.init.table($('#content'));
+            App.init.form($('#content'));
 
         },
 
         pagesForm: function() {
 
-            Init.form($('#content'));
+            App.init.form($('#content'));
 
             var pageBlocks = new PageBlocksView({
                 el: $('#content .blocks')

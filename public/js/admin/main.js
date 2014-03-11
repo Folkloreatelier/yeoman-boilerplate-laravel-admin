@@ -104,7 +104,5 @@ require(
 
     'use strict';
 
-    $(function() {
-        App.init();
-    });
+    $(App.boot);
 });

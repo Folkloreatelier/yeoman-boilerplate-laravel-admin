@@ -2,6 +2,7 @@ define(
 [
 	'jquery','underscore','backbone',
 
+	'admin/init',
 	'admin/router'
 
 ],
@@ -10,6 +11,7 @@ function(
 
 	$,_,Backbone,
 
+	Init,
 	Router
 
 ) {
@@ -20,23 +22,13 @@ function(
 
 		'router' : null,
 
-		'init' : function() {
+		'init' : Init,
 
-			App.initRouter();
+		'boot' : function() {
 
-			App.initEvents();
+			App.router = new Router();
 
 			Backbone.history.start({pushState: true});
-
-		},
-
-		'initRouter' : function() {
-
-			var router = new Router();
-
-		},
-
-		'initEvents' : function() {
 
 		}
 

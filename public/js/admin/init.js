@@ -139,6 +139,7 @@ function(
 		}
 
 	};
+    _.extend(Init, Backbone.Events);
 
 	return Init;
 
