@@ -62,8 +62,7 @@
 						<a href="<?=URL::route('admin.users.index')?>" class="dropdown-toggle" data-toggle="dropdown">Utilisateurs <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="<?=URL::route('admin.users.create')?>">Ajouter un utilisateur</a></li>
-							<li class="divider"></li>
-							<li><a href="<?=URL::route('admin.users.index')?>">Voir tous les utilisateurs →</a></li>
+							<li><a href="<?=URL::route('admin.users.index')?>">Tous les utilisateurs</a></li>
 						</ul>
 					</li>
 					<li><a href="<?=URL::action('AdminLoginController@getLogout')?>">Déconnexion</a></li>

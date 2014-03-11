@@ -105,7 +105,12 @@ class AdminUsersController extends AdminBaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$item = User::find($id);
+		if(!$item) return App::abort(404);
+
+		$item->delete();
+
+		return Redirect::route('admin.users.index');
 	}
 
 }
