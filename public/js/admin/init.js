@@ -10,10 +10,6 @@ define(
     'jquery-ui-datepicker-fr',
     'jquery-ui-autocomplete',
 
-    'pickadate-date',
-    'pickadate-time',
-    'pickadate-fr',
-
     'bootstrap-affix',
     'bootstrap-alert',
     'bootstrap-button',
