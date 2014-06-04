@@ -3,9 +3,9 @@ require.config({
     baseUrl: '/js',
 
     paths: {
-        'jquery': 'components/jquery/jquery.min',
+        'jquery': 'components/jquery/jquery',
         'text': 'components/requirejs-text/text',
-        'underscore': 'components/underscore/underscore-min',
+        'underscore': 'components/underscore/underscore',
         'backbone': 'components/backbone/backbone',
 
         'ckeditor' : 'components/ckeditor/ckeditor',
@@ -39,11 +39,7 @@ require.config({
         'bootstrap-tab': 'components/sass-bootstrap/js/tab',
 
         'bootstrap-tokenfield': 'components/bootstrap-tokenfield/bootstrap-tokenfield/bootstrap-tokenfield',
-        'pickadate': 'components/pickadate/lib/picker',
-        'pickadate-date': 'components/pickadate/lib/picker.date',
-        'pickadate-time': 'components/pickadate/lib/picker.time',
-        'pickadate-fr': 'admin/vendor/pickadate.fr',
-        
+
         'app' : 'admin/app',
         'controllers' : 'admin/controllers',
         'views' : 'admin/views',
@@ -75,10 +71,7 @@ require.config({
         'bootstrap-transition': {deps:['jquery']},
 
         'bootstrap-tokenfield': {deps:['jquery']},
-        'pickadate': {deps:['jquery']},
-        'pickadate-date': {deps:['pickadate']},
-        'pickadate-time': {deps:['pickadate']},
-        
+
         //jQuery UI
         'jquery-ui-core': {deps: ['jquery']},
         'jquery-ui-position': {deps: ['jquery-ui-core']},

@@ -71,12 +71,6 @@ function(
             //Datepicker (jQuery UI)
             Init.datepicker($context.find('input.datepicker'));
 
-            //Datepicker (Pickadate)
-            Init.pickadate($context.find('input.picker-date'));
-
-            //Timepicker
-            Init.pickatime($context.find('input.picker-time'));
-
             //Uploader
             Init.uploader($context.find('.uploader'));
 
@@ -111,29 +105,6 @@ function(
                     dateFormat: 'yy-mm-dd',
                     changeMonth: true,
                     changeYear: true
-                });
-            });
-		},
-
-		pickadate: function($el) {
-			$el.each(function() {
-                $(this).pickadate({
-                    format: 'yyyy-mm-dd',
-                    klass: $.extend({},$.fn.pickadate.defaults.klass)
-                });
-            });
-		},
-
-		pickatime: function($el) {
-			$el.each(function() {
-                $(this).pickatime({
-                    format: 'HH:i',
-                    interval: 30,
-                    min: [9,0],
-                    max: [23,0],
-                    klass: $.extend({},$.fn.pickadate.defaults.klass,{
-                        picker: 'picker picker-time'
-                    })
                 });
             });
 		}

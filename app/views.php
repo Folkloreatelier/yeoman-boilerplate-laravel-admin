@@ -4,7 +4,11 @@ View::creator(array('layouts.main'), function($view)
 {
 
 	$headContainer = Asset::container('head');
-	$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
+	if(App::environment() == 'local') {
+		$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
+	} else {
+		$headContainer->add('modernizr','js/vendor/modernizr.js');
+	}
 	$headContainer->add('styles','css/main.css');
 
 	//Footer Assets
@@ -28,7 +32,11 @@ View::creator(array('admin.layout'), function($view)
 {
 
 	$headContainer = Asset::container('head');
-	$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
+	if(App::environment() == 'local') {
+		$headContainer->add('modernizr','js/components/modernizr/modernizr.js');
+	} else {
+		$headContainer->add('modernizr','js/admin/vendor/modernizr.js');
+	}
 	$headContainer->add('styles','css/admin/main.css');
 
 	//Footer Assets
