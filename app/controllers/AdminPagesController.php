@@ -81,10 +81,10 @@ class AdminPagesController extends AdminBaseController {
 		//Validate
 		$rules = array(
 			'parent_id' => array('exists:pages,id'),
-			'title_'.$this->language => array('required')
+			'title_'.$this->locale => array('required')
 		);
 		$messages = array(
-			'title_'.$this->language.'.required' => 'Vous devez entrer un titre'
+			'title_'.$this->locale.'.required' => 'Vous devez entrer un titre'
 		);
 		$validator = Validator::make($input,$rules,$messages);
 		if($validator->fails()) {
@@ -128,7 +128,7 @@ class AdminPagesController extends AdminBaseController {
 		$parentPagesOptions = array(''=>'Sélectionnez une page parente...');
 		$pages = Page::all();
 		foreach($pages as $page) {
-			$parentPagesOptions[$page->id] = $page->{'title_'.$this->language};
+			$parentPagesOptions[$page->id] = $page->{'title_'.$this->locale};
 		}
 
 		return $parentPagesOptions;
