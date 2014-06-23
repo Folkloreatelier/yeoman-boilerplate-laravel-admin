@@ -17,6 +17,7 @@ class CreatePagesBlocksTable extends Migration {
 			$table->increments('id');
 			$table->integer('page_id')->index();
 			$table->string('type',50);
+			$table->string('area',50)->index();
 			$table->smallInteger('order')->index();
 			$table->longText('data');
 			$table->timestamps();

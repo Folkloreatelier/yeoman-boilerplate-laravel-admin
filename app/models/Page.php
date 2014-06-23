@@ -4,7 +4,15 @@ class Page extends ImageableEloquent {
 
 	protected $table = 'pages';
 
-	protected $fillable = array();
+	protected $fillable = array(
+		'parent_id',
+		'title_fr',
+		'slug_fr',
+		'body_fr',
+		'title_en',
+		'slug_en',
+		'body_en'
+	);
 
 	/*
 	 *
@@ -22,6 +30,19 @@ class Page extends ImageableEloquent {
 	public function blocks()
 	{
 		return $this->hasMany('PageBlock','page_id')->orderBy('order','asc');
+	}
+
+	/*
+	 *
+	 * Get methods
+	 *
+	 */
+	public function getBlocksForArea($area = '')
+	{
+		return $this->blocks->filter(function($block) use ($area)
+		{
+			return $block->area === $area
+		});
 	}
 
 	/*
@@ -76,19 +97,6 @@ class Page extends ImageableEloquent {
 
 }
 
-Event::listen('eloquent.booting: Page',function($item) {
-	$fillable = array(
-		'parent_id'
-	);
-	foreach(Config::get('app.available_locale') as $lang) {
-		$fillable[] = 'title_'.$lang;
-		$fillable[] = 'slug_'.$lang;
-		$fillable[] = 'body_'.$lang;
-	}
-	$item->fillable($fillable);
-	
-});
-
 Page::deleting(function($item)
 {
 	//Delete associated photos
@@ -104,6 +112,6 @@ Page::deleting(function($item)
 			$item->delete();
 		}
 	}
-	
+
 	return true;
 });

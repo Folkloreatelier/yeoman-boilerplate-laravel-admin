@@ -6,6 +6,7 @@ class PageBlock extends ImageableEloquent {
 
 	protected $fillable = array(
 		'type',
+		'area',
 		'order',
 		'data'
 	);
