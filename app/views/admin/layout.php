@@ -1,11 +1,11 @@
 <!doctype html>
-<!--[if IE ]> <html class="ie" lang="<?=$language?>"> <![endif]-->
-<!--[if !(IE) ]><!--> <html lang="<?=$language?>"> <!--<![endif]-->
+<!--[if IE ]> <html class="ie" lang="<?=$locale?>"> <![endif]-->
+<!--[if !(IE) ]><!--> <html lang="<?=$locale?>"> <!--<![endif]-->
 <head>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="content-language" content="<?=$language?>-ca">
+	<meta http-equiv="content-laguage" content="<?=$locale?>-ca">
 
 	<title><?=$title?></title>
 
@@ -19,7 +19,7 @@
 
 	<!-- Head Javascript -->
 	<script type="text/javascript">
-		var LANGUAGE = "<?=$language?>";
+		var LOCALE = "<?=$locale?>";
 		var WINDOW_LOADED = false;
 		var CKEDITOR_BASEPATH = '/js/components/ckeditor/';
 	</script>
@@ -52,7 +52,7 @@
 
 						<ul class="dropdown-menu">
 							<?php foreach($pages as $page) { ?>
-							<li><a href="<?=URL::route('admin.pages.edit',array($page->id))?>"><?=$page->{'title_'.$language}?></a></li>
+							<li><a href="<?=URL::route('admin.pages.edit',array($page->id))?>"><?=$page->{'title_'.$locale}?></a></li>
 							<?php } ?>
 							<li class="divider"></li>
 							<li><a href="<?=URL::route('admin.pages.index')?>">Toutes les pages</a></li>
@@ -71,7 +71,7 @@
 			<?php } ?>
 		</nav>
 	</header>
-	
+
 	<section id="content">
 		<div class="container">
 			<div class="row">

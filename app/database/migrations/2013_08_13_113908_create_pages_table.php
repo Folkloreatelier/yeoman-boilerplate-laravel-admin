@@ -16,7 +16,7 @@ class CreatePagesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('parent_id');
-			foreach(Config::get('app.available_locale') as $lang) {
+			foreach(Config::get('app.locale_available') as $lang) {
 				$table->string('title_'.$lang);
 				$table->text('body_'.$lang);
 				$table->string('slug_'.$lang)->unique();
