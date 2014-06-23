@@ -1,5 +1,5 @@
 <?php
-	
+
 	$fieldName = 'blocks['.(isset($item) ? $index:'<%= index %>').']';
 
 ?>
@@ -14,8 +14,8 @@
 				<span class="label label-default">Bloc #<span class="index"><?=isset($item) ? ($index+1):'<%= index+1 %>'?></span></span>
 			</a>
 		</li>
-		<?php foreach(Config::get('app.available_locale') as $lang) { ?>
-		<li class="<?=$lang == $language ? 'active':''?>">
+		<?php foreach(Config::get('app.locale_available') as $lang) { ?>
+		<li class="<?=$lang == $locale ? 'active':''?>">
 			<a href="#block<?=isset($item) ? $index:'<%= index %>'?>-<?=$lang?>" data-toggle="tab"><?=strtoupper($lang)?></a>
 		</li>
 		<?php } ?>
@@ -25,9 +25,9 @@
 	</ul>
 
 	<div class="tab-content">
-		<?php foreach(Config::get('app.available_locale') as $lang) { ?>
+		<?php foreach(Config::get('app.locale_available') as $lang) { ?>
 
-			<div class="tab-pane <?=$lang == $language ? 'active':''?>" id="block<?=isset($item) ? $index:'<%= index %>'?>-<?=$lang?>">
+			<div class="tab-pane <?=$lang == $locale ? 'active':''?>" id="block<?=isset($item) ? $index:'<%= index %>'?>-<?=$lang?>">
 
 				<div class="form-group">
 					<?=Form::label($fieldName.'[title_'.$lang.']','Titre:',array('class'=>'control-label'))?>

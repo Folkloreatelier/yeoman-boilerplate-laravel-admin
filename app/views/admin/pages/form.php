@@ -27,7 +27,7 @@
 		<div class="nav-tabs-locale">
 
 			<ul class="nav nav-tabs">
-				<?php foreach(Config::get('app.available_locale') as $lang) { ?>
+				<?php foreach(Config::get('app.locale_available') as $lang) { ?>
 				<li class="<?=$lang == Config::get('app.locale') ? 'active':''?>">
 					<a href="#<?=$lang?>" data-toggle="tab"><?=strtoupper($lang)?></a>
 				</li>
@@ -35,9 +35,9 @@
 			</ul>
 
 			<div class="tab-content">
-				<?php foreach(Config::get('app.available_locale') as $lang) { ?>
+				<?php foreach(Config::get('app.locale_available') as $lang) { ?>
 
-					<div class="tab-pane <?=$lang == $language ? 'active':''?>" id="<?=$lang?>">
+					<div class="tab-pane <?=$lang == $locale ? 'active':''?>" id="<?=$lang?>">
 						<?php
 							$hasError = $errors && $errors->has('title_'.$lang);
 						?>
@@ -145,12 +145,12 @@
 
 				?></div>
 			</div>
-			
+
 		</div>
 
 	</fieldset>
 
-	
+
 
 	<fieldset>
 
