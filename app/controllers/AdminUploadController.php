@@ -1,5 +1,7 @@
 <?php
 
+use Folklore\EloquentPicturable\Models\Picture;
+
 class AdminUploadController extends AdminBaseController {
 
 	public $layout = null;
@@ -23,7 +25,7 @@ class AdminUploadController extends AdminBaseController {
 	{
 
 		if(Input::hasFile('file')) {
-			$photo = Photo::upload(Input::file('file'));
+			$photo = Picture::upload(Input::file('file'));
 			return array(
 				'success' => true,
 				'response' => $photo->toArray()

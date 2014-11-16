@@ -1,5 +1,7 @@
 <?php
 
+use Folklore\Pages\Models\Page;
+
 class AdminPagesController extends AdminBaseController {
 
 	/**
@@ -100,7 +102,7 @@ class AdminPagesController extends AdminBaseController {
 		$item->syncBlocks(Input::get('blocks',array()));
 
 		//Sync page photos
-		$item->syncPhotos(Input::get('photos',array()));
+		$item->syncPictures(Input::get('pictures',array()));
 
 		return Redirect::route('admin.pages.index');
 	}

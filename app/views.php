@@ -1,5 +1,7 @@
 <?php
 
+use Folklore\Pages\Models\Page;
+
 View::creator(array('layouts.main'), function($view)
 {
 
