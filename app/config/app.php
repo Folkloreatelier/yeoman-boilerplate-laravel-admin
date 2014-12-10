@@ -111,6 +111,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Teepluss\Asset\AssetServiceProvider',
+		'Crhayes\Validation\ValidationServiceProvider',
 		'Folklore\Image\ImageServiceProvider',
         'Folklore\Pages\PagesServiceProvider',
         'Folklore\EloquentPicturable\PicturableServiceProvider'
@@ -179,10 +180,12 @@ return array(
         'URL'             => 'Illuminate\Support\Facades\URL',
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
-
+		
+		'GroupedValidator' => 'Crhayes\Validation\Facade',
+        'Asset' => 'Teepluss\Asset\Facades\Asset',
+		
 		'Image' => 'Folklore\Image\Facades\Image',
         'Pages' => 'Folklore\Pages\Facades\Pages',
-        'Asset' => 'Teepluss\Asset\Facades\Asset',
 	),
 
 );
