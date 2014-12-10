@@ -8,7 +8,7 @@ define(
 	'views/pageBlockText',
 	'views/pageBlockPhotos',
 
-	'jquery-ui-sortable'
+	'jquery-ui/sortable'
 
 ],
 function(

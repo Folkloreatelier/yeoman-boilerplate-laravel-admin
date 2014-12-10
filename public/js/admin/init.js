@@ -6,9 +6,9 @@ define(
 
     'views/uploader',
 
-    'jquery-ui-datepicker',
-    'jquery-ui-datepicker-fr',
-    'jquery-ui-autocomplete',
+    'jquery-ui/datepicker',
+    'jquery-ui/autocomplete',
+    'jquery-ui/i18n/datepicker-fr-CA',
 
     'bootstrap-affix',
     'bootstrap-alert',

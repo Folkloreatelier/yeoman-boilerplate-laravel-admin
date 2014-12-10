@@ -15,7 +15,7 @@ define(
 	'text!templates/uploader-file.html',
 
 	'jquery-fineuploader',
-	'jquery-ui-sortable'
+	'jquery-ui/sortable'
 
 ],
 function(

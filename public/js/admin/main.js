@@ -38,7 +38,7 @@ require.config({
         'bootstrap-collapse': 'components/sass-bootstrap/js/collapse',
         'bootstrap-tab': 'components/sass-bootstrap/js/tab',
 
-        'bootstrap-tokenfield': 'components/bootstrap-tokenfield/bootstrap-tokenfield/bootstrap-tokenfield',
+        'bootstrap-tokenfield': 'components/bootstrap-tokenfield/dist/bootstrap-tokenfield',
 
         'app' : 'admin/app',
         'controllers' : 'admin/controllers',
@@ -48,6 +48,15 @@ require.config({
         'templates' : 'admin/templates'
 
     },
+    
+    packages: [
+        {
+            name: 'jquery-ui',
+            location: 'components/jquery-ui/ui',
+            main: 'core'
+        }
+    ],
+    
     shim: {
 
         'underscore': {exports: '_'},
@@ -70,19 +79,7 @@ require.config({
         'bootstrap-tooltip': {deps:['jquery', 'bootstrap-transition']},
         'bootstrap-transition': {deps:['jquery']},
 
-        'bootstrap-tokenfield': {deps:['jquery']},
-
-        //jQuery UI
-        'jquery-ui-core': {deps: ['jquery']},
-        'jquery-ui-position': {deps: ['jquery-ui-core']},
-        'jquery-ui-widget': {deps: ['jquery-ui-core']},
-        'jquery-ui-datepicker': {deps: ['jquery-ui-core','jquery-ui-widget']},
-        'jquery-ui-datepicker-fr': {deps: ['jquery-ui-datepicker']},
-        'jquery-ui-mouse': {deps: ['jquery-ui-core','jquery-ui-widget']},
-        'jquery-ui-draggable': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-mouse']},
-        'jquery-ui-sortable': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-mouse']},
-        'jquery-ui-menu': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position']},
-        'jquery-ui-autocomplete': {deps: ['jquery-ui-core','jquery-ui-widget','jquery-ui-position','jquery-ui-menu']}
+        'bootstrap-tokenfield': {deps:['jquery']}
 
     }
 });
